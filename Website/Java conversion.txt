@@ -1,0 +1,67 @@
+console.log("Converter\n");
+
+var a = 0;
+var b = 0; 
+var arrl = ["NaN", "Meters", "Inches", "Miles", "Attoparsec"];
+var arrw = ["NaN", "Kilograms", "Pounds", "Ounces", "Hogsheads"];
+
+var arrayLength = new Object();
+arrayLength[0] = "Error"
+arrayLength[1] = 1609.34;
+arrayLength[2] = 63360;
+arrayLength[3] = 1;
+arrayLength[4] = 52155.3;
+
+var arrayWeight = new Object();
+arrayWeight[0] = "Error";
+arrayWeight[1] = 1;
+arrayWeight[2] = 2.20462;
+arrayWeight[3] = 35.274;
+arrayWeight[4] = 440.7;
+
+function calculation(a, b){
+	return b / a;
+}
+
+var test1;
+var test2;
+var run = prompt("Would you like to run the code? (Y/N)")
+run.toLowerCase(); 
+var conversion1 = false;
+
+while(run === 'yes' || run === 'y'){
+
+	var conversion = prompt("would you like to convert weight or distance?\n1)Distance\n2)Weight");
+    		switch(conversion){
+       	 		case("1"):
+            			var length1 = prompt("What would you like to convert\n1)Meters\n2)Inches\n3)Miles\n4)Attoparsec");
+				test1 = arrl[length1];
+				a = arrayLength[length1];
+
+				var length2 = prompt("What would you like to convert " + test1 + " to?\n1)Meters\n2)Inches\n3)Miles\n4)Attoparsec");
+				test2 = arrl[length2];
+				b = arrayLength[length2];
+	
+				alert("1 " + test1 + " is "+(calculation(a, b)) +" " + test2);
+				break;
+                	
+        		case("2"):
+				var length1 = prompt("What would you like to convert\n1)Kilograms\n2)Pounds\n3)Ounces\n4)Hogsheads");
+				test1 = arrw[length1];
+				a = arrayWeight[length1];
+
+				var length2 = prompt("What would you like to convert " + test1 + " to?\n1)Kilograms\n2)Pounds\n3)Ounces\n4)Hogsheads");
+				test2 = arrw[length2];
+				b = arrayWeight[length2];
+				
+				alert("1 " + test1 + " is "+(calculation(a, b)) +" " + test2);
+            			break;
+			            
+        		default:
+            			alert("Please Select an appropriate value");
+
+		}		
+        	
+    	run = prompt("Would you like to run the code? (Y/N)")
+    	run.toLowerCase();       
+}
